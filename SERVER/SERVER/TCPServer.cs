@@ -228,7 +228,8 @@ namespace chess
                     CREATE TABLE IF NOT EXISTS players (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                         username TEXT NOT NULL UNIQUE,
-                        password TEXT NOT NULL
+                        password TEXT NOT NULL,
+                        isOnline INTEGER NOTNULL CHECK (isOnline IN (0, 1))
                     );";
                 using (var command = new SQLiteCommand(createTableQuery, connection))
                 {
